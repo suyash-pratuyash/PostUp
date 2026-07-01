@@ -16,86 +16,87 @@ export default function Sidebar() {
       .catch(() => {});
   }, [location.pathname]);
 
+  const navLinkClass = ({ isActive }) =>
+    `flex items-center gap-3 px-5 py-2.5 text-sm font-medium transition-all duration-150 border-l-[3px] cursor-pointer ${
+      isActive
+        ? 'bg-linkedin-blue-subtle text-linkedin-blue border-l-linkedin-blue font-semibold'
+        : 'text-text-secondary border-l-transparent hover:bg-bg-hover hover:text-text-primary'
+    }`;
+
   return (
-    <aside className="sidebar">
+    <aside className="fixed top-0 left-0 w-[280px] h-screen bg-bg-white border-r border-border-light flex flex-col z-[200] overflow-y-auto">
       {/* Brand */}
-      <div className="sidebar-brand">
-        <h1>
-          <span className="brand-icon">✍️</span>
+      <div className="px-5 pt-5 pb-4 border-b border-border-light">
+        <h1 className="text-[22px] font-extrabold text-linkedin-blue flex items-center gap-2.5">
+          <span className="w-8 h-8 bg-linkedin-blue rounded-lg flex items-center justify-center text-white text-lg">
+            ✍️
+          </span>
           PostUp
         </h1>
-        <p>LinkedIn Post Writer</p>
+        <p className="text-xs text-text-tertiary mt-1 pl-[42px]">LinkedIn Post Writer</p>
       </div>
 
       {/* Navigation */}
-      <nav className="sidebar-nav">
-        <div className="sidebar-section-label">Main</div>
+      <nav className="py-3 flex-1">
+        <div className="px-5 pt-3 pb-1.5 text-[11px] font-bold uppercase tracking-wide text-text-tertiary">Main</div>
 
-        <NavLink
-          to="/"
-          end
-          className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
-        >
-          <span className="nav-icon">🏠</span>
+        <NavLink to="/" end className={navLinkClass}>
+          <span className="w-[22px] h-[22px] flex items-center justify-center text-lg shrink-0">🏠</span>
           Dashboard
         </NavLink>
 
-        <NavLink
-          to="/generate"
-          className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
-        >
-          <span className="nav-icon">⚡</span>
+        <NavLink to="/generate" className={navLinkClass}>
+          <span className="w-[22px] h-[22px] flex items-center justify-center text-lg shrink-0">⚡</span>
           Generate Post
-          {!geminiOk && <span className="nav-badge" style={{ background: '#FFEBEE', color: '#CC1016' }}>!</span>}
+          {!geminiOk && (
+            <span className="ml-auto text-[11px] font-bold px-2 py-0.5 rounded-[10px] bg-status-red-light text-status-red">!</span>
+          )}
         </NavLink>
 
-        <div className="sidebar-section-label">Content</div>
+        <div className="px-5 pt-3 pb-1.5 text-[11px] font-bold uppercase tracking-wide text-text-tertiary">Content</div>
 
-        <NavLink
-          to="/projects"
-          className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
-        >
-          <span className="nav-icon">📁</span>
+        <NavLink to="/projects" className={navLinkClass}>
+          <span className="w-[22px] h-[22px] flex items-center justify-center text-lg shrink-0">📁</span>
           Projects
-          {stats.projects > 0 && <span className="nav-badge">{stats.projects}</span>}
+          {stats.projects > 0 && (
+            <span className="ml-auto text-[11px] font-bold px-2 py-0.5 rounded-[10px] bg-linkedin-blue-light text-linkedin-blue">{stats.projects}</span>
+          )}
         </NavLink>
 
-        <NavLink
-          to="/logs"
-          className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
-        >
-          <span className="nav-icon">📝</span>
+        <NavLink to="/logs" className={navLinkClass}>
+          <span className="w-[22px] h-[22px] flex items-center justify-center text-lg shrink-0">📝</span>
           Daily Logs
-          {stats.daily_logs > 0 && <span className="nav-badge">{stats.daily_logs}</span>}
+          {stats.daily_logs > 0 && (
+            <span className="ml-auto text-[11px] font-bold px-2 py-0.5 rounded-[10px] bg-linkedin-blue-light text-linkedin-blue">{stats.daily_logs}</span>
+          )}
         </NavLink>
 
-        <NavLink
-          to="/posts"
-          className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
-        >
-          <span className="nav-icon">📄</span>
+        <NavLink to="/posts" className={navLinkClass}>
+          <span className="w-[22px] h-[22px] flex items-center justify-center text-lg shrink-0">📄</span>
           Saved Posts
-          {stats.generated_posts > 0 && <span className="nav-badge">{stats.generated_posts}</span>}
+          {stats.generated_posts > 0 && (
+            <span className="ml-auto text-[11px] font-bold px-2 py-0.5 rounded-[10px] bg-linkedin-blue-light text-linkedin-blue">{stats.generated_posts}</span>
+          )}
         </NavLink>
       </nav>
 
       {/* Stats */}
-      <div className="sidebar-stats">
-        <div className="stat-row">
-          <span className="stat-label">Projects</span>
-          <span className="stat-value">{stats.projects}</span>
+      <div className="px-5 py-4 border-t border-border-light">
+        <div className="flex justify-between items-center py-1.5 text-[13px]">
+          <span className="text-text-secondary">Projects</span>
+          <span className="font-bold text-text-primary">{stats.projects}</span>
         </div>
-        <div className="stat-row">
-          <span className="stat-label">Daily Logs</span>
-          <span className="stat-value">{stats.daily_logs}</span>
+        <div className="flex justify-between items-center py-1.5 text-[13px]">
+          <span className="text-text-secondary">Daily Logs</span>
+          <span className="font-bold text-text-primary">{stats.daily_logs}</span>
         </div>
-        <div className="stat-row">
-          <span className="stat-label">Posts Generated</span>
-          <span className="stat-value">{stats.generated_posts}</span>
+        <div className="flex justify-between items-center py-1.5 text-[13px]">
+          <span className="text-text-secondary">Posts Generated</span>
+          <span className="font-bold text-text-primary">{stats.generated_posts}</span>
         </div>
-        <div className="stat-row" style={{ marginTop: '8px', paddingTop: '8px', borderTop: '1px solid var(--border-light)' }}>
-          <span className="stat-label">Gemini AI</span>
-          <span className="stat-value" style={{ color: geminiOk ? 'var(--green)' : 'var(--red)' }}>
+        <div className="flex justify-between items-center py-1.5 text-[13px] mt-2 pt-2 border-t border-border-light">
+          <span className="text-text-secondary">Gemini AI</span>
+          <span className={`font-bold ${geminiOk ? 'text-status-green' : 'text-status-red'}`}>
             {geminiOk ? '● Connected' : '● Offline'}
           </span>
         </div>

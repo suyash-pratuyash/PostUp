@@ -10,9 +10,9 @@ import SavedPosts from './pages/SavedPosts';
 function App() {
   return (
     <Router>
-      <div className="app-layout">
+      <div className="flex min-h-screen">
         <Sidebar />
-        <main className="main-content">
+        <main className="flex-1 p-6" style={{ marginLeft: '280px' }}>
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/projects" element={<ProjectsList />} />
