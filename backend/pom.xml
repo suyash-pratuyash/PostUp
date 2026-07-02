@@ -11,7 +11,7 @@
 	<groupId>com.postup</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>PostUp</name>
+	<name>Inked In</name>
 	<description>LinkedIn Post Writer Backend</description>
 	<url/>
 	<licenses>

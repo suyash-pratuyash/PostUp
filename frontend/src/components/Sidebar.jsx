@@ -31,7 +31,7 @@ export default function Sidebar() {
           <span className="w-8 h-8 bg-linkedin-blue rounded-lg flex items-center justify-center text-white text-lg">
             ✍️
           </span>
-          PostUp
+          Inked In
         </h1>
         <p className="text-xs text-text-tertiary mt-1 pl-[42px]">LinkedIn Post Writer</p>
       </div>

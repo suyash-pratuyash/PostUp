@@ -107,7 +107,7 @@ export default function Dashboard() {
       {/* Header */}
       <div className="mb-6 animate-fade-in">
         <h2 className="text-2xl font-bold text-text-primary mb-1">{getGreeting()} 👋</h2>
-        <p className="text-sm text-text-secondary">Here's your PostUp activity overview</p>
+        <p className="text-sm text-text-secondary">Here's your Inked In activity overview</p>
       </div>
 
       {/* Stats Cards */}
@@ -181,7 +181,7 @@ export default function Dashboard() {
         ) : (
           <div className="text-center py-12 px-6">
             <div className="text-5xl mb-4 opacity-50">🚀</div>
-            <h3 className="text-lg font-semibold text-text-primary mb-2">Welcome to PostUp!</h3>
+            <h3 className="text-lg font-semibold text-text-primary mb-2">Welcome to Inked In!</h3>
             <p className="text-sm text-text-secondary mb-5 max-w-[360px] mx-auto">
               Start by creating a project or generating your first LinkedIn post.
             </p>

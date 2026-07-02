@@ -1,6 +1,6 @@
-# PostUp ✍️
+# Inked In ✍️
 
-**PostUp** is an AI-powered LinkedIn post writer that transforms raw notes about your daily work and learnings into polished, highly engaging LinkedIn posts.
+**Inked In** is an AI-powered LinkedIn post writer that transforms raw notes about your daily work and learnings into polished, highly engaging LinkedIn posts.
 
 ## 🚀 Tech Stack
 
